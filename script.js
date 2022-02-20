@@ -7,35 +7,61 @@ function getData(data) {
     for (let i = 1; i < data.length; i++) {
         const element = data[i];
 
-        // th created
+
+        // th created number
         const tr = document.createElement('tr');
         const th = document.createElement('th');
         th.innerText = i;
         tr.appendChild(th);
 
-        // tr created
-        const td = document.createElement('td');
+
+
+        // tr continents
+        td = document.createElement('td');
+        td.innerText = element.continents;
+        tr.appendChild(td);
+        table.appendChild(tr);
+
+
+        // tr country
+        td = document.createElement('td');
         td.innerText = element.name.common;
         tr.appendChild(td);
         table.appendChild(tr);
 
-        // tr capital
 
-        if(element.capital == undefined){
-            const td = document.createElement('td');
+        // tr capital
+        if (element.capital == undefined) {
+            td = document.createElement('td');
             td.innerText = '@@ Thare Is No Capital';
             tr.appendChild(td);
             table.appendChild(tr);
         }
-        else{
-            const td = document.createElement('td');
+        else {
+            td = document.createElement('td');
             td.innerText = element.capital[0];
             tr.appendChild(td);
             table.appendChild(tr);
         }
 
-        // console.log(element.capital)
-        
+
+        // add imgae
+        const img = document.createElement('img');
+        td = document.createElement('td');
+        img.src = element.flags.png;
+        img.style.width = '20%';
+        td = img;
+        tr.appendChild(td);
+        tr.style.background = '#212529';
+        table.appendChild(tr);
+
+
+        // practise
+        td = document.createElement('td');
+        td.innerText = (element.population).toLocaleString('en');
+        tr.appendChild(td);
+        table.appendChild(tr);
+
     }
 }
 
